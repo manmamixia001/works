@@ -1,0 +1,441 @@
+/* CSSの最初にリセットスタイルを記述 */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+  
+  
+li {
+  list-style: none;
+}
+  
+
+html {
+  transform-origin: top left;
+  transform: scale(1); 
+}
+
+body {
+  color: #333;
+  font-weight: 400;
+  font-family:"MS Pゴシック",sans-serif;
+  background: #F8F6F0;
+}
+  
+body > *:not(header) {
+  opacity: 0; /* 初期状態を透明に設定 */
+  transition: opacity 2s ease; /* フェードインアニメーションを設定 */
+}
+
+  
+/*--------------------------------------------------------------------------*/
+.header {
+  font-size: 16px;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 70px;
+  position: fixed;
+  top: 0px;
+  z-index: 10;
+}
+  
+  /* 初期状態（アニメーション前） */
+.header {
+  transform: translateY(0px); /* 下に-80px移動 */
+  transition: transform 2s;
+  box-shadow: -5px -5px 10px 0px rgba(255, 255, 255, 0.5), 
+  5px 5px 10px 0px rgba(0, 0, 0, 0.3);
+}
+  
+/*--------------------------------------------------------------------------*/
+.header-left {
+  display: flex;           /* 子要素（画像）を中央揃えするためにFlexboxを追加 */
+  align-items: center;     /* 縦方向の中央揃え */
+  margin-left: 10px;       /* 左の余白を追加 */
+}
+  
+.header-left img {
+  height: 60px;            /* 画像の高さを固定 */
+  margin: 0;               /* 余計な余白を削除 */
+}
+  
+.header-right {
+  display: flex;           /* Flexboxでリンクを配置 */
+  align-items: center;     /* リンクを縦方向で中央揃え */
+  margin-right: 10px;      /* 右の余白を追加 */    
+}
+  
+.header-btn {
+  width: 100px;                  /* ボタンの幅 */
+  margin-left: 10px;             /* ボタン間のスペースを調整 */
+  padding: 5px 0;                /* ボタン内の上下パディングを調整 */
+  border-radius: 5px;            /* 角を丸くする */
+  display: flex;                 /* Flexboxを適用 */
+  align-items: center;           /* 縦方向の中央揃え */
+  justify-content: center;       /* 横方向の中央揃え */
+  box-shadow: -5px -5px 10px 0px rgba(255, 255, 255, 0.5), 
+  5px 5px 10px 0px rgba(0, 0, 0, 0.3);
+}
+  
+  
+  
+/*--------------------------------------------------------------------------*/
+.header-right a {
+  color: #333;    /* 赤文字の色 */
+  text-decoration: none;         /* 下線を削除 */
+  position: relative;            /* 擬似要素のための基準 */
+  display: inline-block;
+}
+  
+.header-right a:before {
+  content: "";                   /* 擬似要素で下線を追加 */
+  position: absolute;
+  left: 0;
+  bottom: 0px;                  /* 赤文字のすぐ下に配置 */
+  width: 100%;                   /* 下線の幅 */
+  height: 1px;                   /* 下線の高さ */
+  background: #555;              /* 下線の色 */
+  transform: scale(0, 1);        /* 初期状態で非表示 */
+  transform-origin: left;        /* 左から拡大するアニメーション */
+  transition: 0.4s;              /* トランジション効果 */
+}
+  
+.header-right a:hover:before {
+  transform: scale(1);           /* ホバー時に下線を表示 */    
+}
+  
+/*--------------------------------------------------------------------------*/
+.story {
+  position: relative;
+}
+
+h2 {
+  font-weight: 500;
+  font-size: 4.8rem;
+}
+
+h3 {
+  margin-bottom: 40px;
+  opacity: 0.8;
+}
+
+.title {
+  padding-top: 150px;
+  margin-bottom: 0px;
+  text-align: center;
+  font-size: 100px;
+}
+  
+.sub-title {
+  font-weight: 500;
+  font-size: 1.6rem;
+  text-align: center;
+  margin-bottom: 100px;
+}
+
+.event {
+  width: auto;
+  height: 150px;
+}
+
+.event p {
+  width: 800px;
+}
+
+.event h2{
+  font-size: 80px;
+  height: 80px;
+  width: 200px;
+  margin-bottom: 20px;
+}
+
+.event-kind-left {
+  padding-right: 600px;
+  text-align: right;
+}
+
+.events-container{
+  position: relative; /* 子要素の位置指定の基準 */
+  align-items: center; /* 子要素の垂直方向の中央揃え */
+}
+
+.events-center {
+  position: relative;
+  width: auto;
+  height: 0px;
+  width: 0px;
+  position: relative;
+
+  margin: auto;
+}
+
+.dot {
+  display: inline-block;
+  height: 20px;
+  width: 20px;
+  border-radius: 50%;
+  background-color: #333;
+  position: absolute;
+  top: 0%;
+  left: 50%;
+  transform: translate(-50%, -50%); /* 自身のサイズ分中央に調整 */
+}
+
+.events-day-left {
+  font-size: 20px;
+  display: inline-block;
+  position: absolute;
+  top: -25px;
+  right: 20px;
+  width: 200px;
+}
+
+
+.events-thing-right {
+  position: absolute;
+  top: -5px;
+  left: 20px;
+  display: inline-block;
+  font-size: 35px;
+  line-height: 100%;
+}
+
+.events-day-right {
+  font-size: 20px;
+  display: inline-block;
+  position: absolute;
+  top: -25px;
+  left: 20px;
+  width: 200px;
+}
+
+
+.events-thing-left {
+  position: absolute;
+  top: -5px;
+  right: 20px;
+  display: inline-block;
+  font-size: 35px;
+  line-height: 100%;
+  text-align: right;
+}
+
+
+#line {
+  position: absolute;
+  top: 0px;
+  height: 3000px;
+  width: 1px;
+  background-color: #333;
+  position: absolute;
+  left: 50%;
+}
+
+.birth {
+  margin-top: 0px;
+}
+
+.get-pc {
+  margin-top: 300px;
+}
+
+.conpaney {
+  margin-top: 100px;
+}
+
+.san {
+  margin-top: 150px;
+}
+
+.yon {
+  margin-top: 200px;
+}
+
+.go {
+  margin-top: 100px;
+}
+
+.roku {
+  margin-top: 00px;
+}
+
+.now-h2 {
+  text-align: center;
+  margin-top: 100px;
+}
+
+.now {
+  text-align: center;
+  font-size: 30px;
+  margin-bottom: 30px;
+}
+
+/*--------------------------------------------------------------------------*/
+
+footer {
+  text-align: center;
+  height: 400px;
+  background-color: #afa15a;
+  width: 100%;
+  padding: 80px 80px 400px 80px;
+  font-family: "nort", sans-serif;
+  font-style: normal;
+  font-weight: 300;
+  font-size: 20px;
+  position: relative;
+  box-shadow: inset 0px 15px 15px -10px rgba(0, 0, 0, 0.4);
+}
+
+footer p {
+  margin: 50px;
+}
+
+#mail {
+  font-size: 50px;
+  background-color: #ffffff;
+  padding: 0px 100px;
+  border-radius: 9999px;
+  color: #212529;
+  text-decoration: none;
+  transition: all 0.5s;
+}
+
+#mail:hover {
+  font-size: 50px;
+  background-color: #ffffff;
+  padding: 0px 100px;
+  border-radius: 9999px;
+  color: #212529;
+  text-decoration: none;
+  opacity: 0.8;
+  transition: all 0.5s;
+}
+
+#twitter-icon {
+  transform: translateY(30px);
+  width: 80px;
+  transition: all 0.5s;
+}
+
+#twitter-icon:hover {
+  transform: translateY(30px);
+  width: 80px;
+  opacity: 0.8;
+}
+/*--------------------------------------------------------------------------*/ 
+
+*,
+*:before,
+*:after {
+  -webkit-box-sizing: inherit;
+  box-sizing: inherit;
+}
+
+html {
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+  font-size: 62.5%;/*rem算出をしやすくするために*/
+}
+
+.btn,
+a.btn,
+button.btn {
+  font-size: 1.6rem;
+  font-weight: 700;
+  line-height: 1.5;
+  position: relative;
+  display: inline-block;
+  padding: 1rem 4rem;
+  cursor: pointer;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  -webkit-transition: all 0.3s;
+  transition: all 0.3s;
+  text-align: center;
+  vertical-align: middle;
+  text-decoration: none;
+  letter-spacing: 0.1em;
+  color: #212529;
+  border-radius: 0.5rem;
+}
+/*その他と主な共通部分は省略*/
+
+/*その他と主な共通部分は省略*/
+
+a.btn-flat {
+  overflow: hidden;
+  margin-top: 50px;
+
+  padding: 1.5rem 6rem;
+
+  color: #fff;
+  border-radius: 0;
+  background: #252122;
+}
+
+a.btn-flat span {
+  position: relative;
+}
+
+a.btn-flat:before {
+  position: absolute;
+  top: 0;
+  left: 0;
+
+  width: 100px;
+  height: 100px;
+
+  content: '';
+  -webkit-transition: all .5s ease-in-out;
+  transition: all .5s ease-in-out;
+  -webkit-transform: translateX(-80%) translateY(-25px);
+  transform: translateX(-80%) translateY(-25px);
+
+  border-radius: 50%;
+  background: #e8d575;
+}
+
+a.btn-flat:hover:before {
+  width: 400px;
+  height: 400px;
+
+  -webkit-transform: translateX(-1%) translateY(-175px);
+
+  transform: translateX(-1%) translateY(-175px);
+}
+
+.parent-container {
+  display: flex; /* 子要素をフレックスアイテムにする */
+  justify-content: center; /* 水平方向に中央揃え */
+  align-items: center; /* 垂直方向に中央揃え */
+  margin-bottom: 50px;
+}
+/*--------------------------------------------------------------------------*/ 
+
+body {
+  height: 200vh; /* 長めのページを作成 */
+}
+
+.story img {
+  position: absolute;
+  width: 300px;
+  opacity: 0.8;
+}
+
+.Layer1 { top: 300px; left: 300px; }
+.Layer2 { top: 1200px; left: 250px; }
+.Layer3 { top: 900px; right: 150px; }
+.Layer4 { top: 400px; right: 500px; }
+.Layer5 { top: 1500px; right: 400px; }
+.Layer6 { top: 2500px; left: 300px; }
+.Layer7 { top: 3000px; right: 400px; }
+.Layer8 { top: 2300px; right: 300px; }
+.Layer9 { top: 1600px; right: 150px; }
+.Layer10 { top: 1500px; left: 300px; }
+.Layer11 { top: 3000px; left: 250px; }
+.Layer12 { top: 2000px; right: 300px; }

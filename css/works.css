@@ -1,0 +1,525 @@
+/* CSSの最初にリセットスタイルを記述 */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  color: #333;
+}
+  
+  
+li {
+  list-style: none;
+}
+  
+body {
+  color: #333;
+  font-weight: 400;
+  font-family:"MS Pゴシック",sans-serif;
+  background: #F8F6F0;
+}
+
+a {
+  text-decoration: none;
+}
+
+body > *:not(header) {
+  opacity: 0; /* 初期状態を透明に設定 */
+  transition: opacity 2s ease; /* フェードインアニメーションを設定 */
+}
+
+  
+/*--------------------------------------------------------------------------*/
+.header {
+  font-size: 16px;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 70px;
+  position: fixed;
+  top: 0px;
+  z-index: 10;
+}
+  
+  /* 初期状態（アニメーション前） */
+.header {
+  transform: translateY(0px); /* 下に-80px移動 */
+  transition: transform 2s;
+  box-shadow: -5px -5px 10px 0px rgba(255, 255, 255, 0.5), 
+  5px 5px 10px 0px rgba(0, 0, 0, 0.3);
+}
+  
+/*--------------------------------------------------------------------------*/
+.header-left {
+  display: flex;           /* 子要素（画像）を中央揃えするためにFlexboxを追加 */
+  align-items: center;     /* 縦方向の中央揃え */
+  margin-left: 10px;       /* 左の余白を追加 */
+}
+  
+.header-left img {
+  height: 60px;            /* 画像の高さを固定 */
+  margin: 0;               /* 余計な余白を削除 */
+}
+  
+.header-right {
+  display: flex;           /* Flexboxでリンクを配置 */
+  align-items: center;     /* リンクを縦方向で中央揃え */
+  margin-right: 10px;      /* 右の余白を追加 */    
+}
+  
+.header-btn {
+  width: 100px;                  /* ボタンの幅 */
+  margin-left: 10px;             /* ボタン間のスペースを調整 */
+  padding: 5px 0;                /* ボタン内の上下パディングを調整 */
+  border-radius: 5px;            /* 角を丸くする */
+  display: flex;                 /* Flexboxを適用 */
+  align-items: center;           /* 縦方向の中央揃え */
+  justify-content: center;       /* 横方向の中央揃え */
+  box-shadow: -5px -5px 10px 0px rgba(255, 255, 255, 0.5), 
+  5px 5px 10px 0px rgba(0, 0, 0, 0.3);
+}
+  
+  
+  
+/*--------------------------------------------------------------------------*/
+.header-right a {
+  color: #333;    /* 赤文字の色 */
+  text-decoration: none;         /* 下線を削除 */
+  position: relative;            /* 擬似要素のための基準 */
+  display: inline-block;
+}
+  
+.header-right a:before {
+  content: "";                   /* 擬似要素で下線を追加 */
+  position: absolute;
+  left: 0;
+  bottom: 0px;                  /* 赤文字のすぐ下に配置 */
+  width: 100%;                   /* 下線の幅 */
+  height: 1px;                   /* 下線の高さ */
+  background: #555;              /* 下線の色 */
+  transform: scale(0, 1);        /* 初期状態で非表示 */
+  transform-origin: left;        /* 左から拡大するアニメーション */
+  transition: 0.4s;              /* トランジション効果 */
+}
+  
+.header-right a:hover:before {
+  transform: scale(1);           /* ホバー時に下線を表示 */    
+}
+  
+/*--------------------------------------------------------------------------*/
+.story {
+  position: relative;
+}
+
+h2 {
+  font-weight: 500;
+  font-size: 4.8rem;
+}
+
+h3 {
+  margin-bottom: 40px;
+  opacity: 0.8;
+}
+
+.title {
+  padding-top: 150px;
+  margin-bottom: 0px;
+  text-align: center;
+  font-size: 100px;
+}
+  
+.sub-title {
+  font-weight: 500;
+  font-size: 1.6rem;
+  text-align: center;
+  margin-bottom: 100px;
+}
+
+
+/*--------------------------------------------------------------------------*/
+
+footer {
+  text-align: center;
+  height: 400px;
+  background-color: #afa15a;
+  width: 100%;
+  padding: 80px 80px 400px 80px;
+  font-family: "nort", sans-serif;
+  font-style: normal;
+  font-weight: 300;
+  font-size: 20px;
+  position: relative;
+  box-shadow: inset 0px 15px 15px -10px rgba(0, 0, 0, 0.4);
+}
+
+footer p {
+  margin: 50px;
+}
+
+#mail {
+  font-size: 50px;
+  background-color: #ffffff;
+  padding: 0px 100px;
+  border-radius: 9999px;
+  color: #212529;
+  text-decoration: none;
+  transition: all 0.5s;
+}
+
+#mail:hover {
+  font-size: 50px;
+  background-color: #ffffff;
+  padding: 0px 100px;
+  border-radius: 9999px;
+  color: #212529;
+  text-decoration: none;
+  opacity: 0.8;
+  transition: all 0.5s;
+}
+
+#twitter-icon {
+  transform: translateY(30px);
+  width: 80px;
+  transition: all 0.5s;
+}
+
+#twitter-icon:hover {
+  transform: translateY(30px);
+  width: 80px;
+  opacity: 0.8;
+}
+/*--------------------------------------------------------------------------*/ 
+
+*,
+*:before,
+*:after {
+  -webkit-box-sizing: inherit;
+  box-sizing: inherit;
+}
+
+html {
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+  font-size: 62.5%;/*rem算出をしやすくするために*/
+}
+
+.btn,
+a.btn,
+button.btn {
+  font-size: 1.6rem;
+  font-weight: 700;
+  line-height: 1.5;
+  position: relative;
+  display: inline-block;
+  padding: 1rem 4rem;
+  cursor: pointer;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  -webkit-transition: all 0.3s;
+  transition: all 0.3s;
+  text-align: center;
+  vertical-align: middle;
+  text-decoration: none;
+  letter-spacing: 0.1em;
+  color: #000000;
+  border-radius: 0.5rem;
+}
+/*その他と主な共通部分は省略*/
+span {
+  color: #ffffff;
+}
+/*その他と主な共通部分は省略*/
+
+a.btn-flat {
+  overflow: hidden;
+  margin-top: 50px;
+
+  padding: 1.5rem 6rem;
+
+  color: #fff;
+  border-radius: 0;
+  background: #252122;
+}
+
+a.btn-flat span {
+  position: relative;
+}
+
+a.btn-flat:before {
+  position: absolute;
+  top: 0;
+  left: 0;
+
+  width: 100px;
+  height: 100px;
+
+  content: '';
+  -webkit-transition: all .5s ease-in-out;
+  transition: all .5s ease-in-out;
+  -webkit-transform: translateX(-80%) translateY(-25px);
+  transform: translateX(-80%) translateY(-25px);
+
+  border-radius: 50%;
+  background: #e8d575;
+}
+
+a.btn-flat:hover:before {
+  width: 400px;
+  height: 400px;
+
+  -webkit-transform: translateX(-1%) translateY(-175px);
+
+  transform: translateX(-1%) translateY(-175px);
+}
+
+.parent-container {
+  display: flex; /* 子要素をフレックスアイテムにする */
+  justify-content: center; /* 水平方向に中央揃え */
+  align-items: center; /* 垂直方向に中央揃え */
+  margin-bottom: 200px;
+}
+
+
+/*--------------------------------------------------------------------------*/ 
+
+.contents-wrapper {
+  max-width: 1300px;
+  margin: auto;
+}
+
+.work-kinds-btn {
+  border-radius: 300px;
+  padding: 5px 20px;
+  font-size: 20px;
+  font-weight: 600;
+  margin-right: 10px;
+}
+
+.grey-btn {
+  background-color: #afafaf;
+}
+
+/*--------------------------------------------------------------------------*/ 
+
+.work-btns {
+  margin-bottom: 50px;
+}
+
+.Works {
+  font-family: "nort", sans-serif;
+  font-style: normal;
+  font-weight: 300;
+  font-size: 20px;
+}
+
+/*--------------------------------------------------------------------------*/ 
+
+.Works-contents {
+  flex: auto;
+  width: 25%;
+  margin-right: 0px;
+  padding: 10px;
+  height: 300px;
+}
+
+
+
+h3 {
+  font-weight: 500;
+  font-size: 1.6rem;
+  margin-bottom: 40px;
+  opacity: 0.8;
+}
+
+.Works_contents_wrapper {
+  padding: 0;
+  margin: 0 auto;
+}
+
+.Works_contents_wrapper ul {
+  display: grid; /* Grid Layoutを使用 */
+  grid-template-columns: repeat(auto-fit, minmax(400px, 1fr)); /* カードを左上から順に並べる */
+  gap: 40px; /* カード間のスペース */
+  justify-content: center; /* 横方向で中央揃え */
+  align-items: start; /* 縦方向で上揃え */
+}
+
+.Works_contents_wrapper img {
+  width: 100%; /* 画像を親要素にフィット */
+  height: auto; /* 高さを自動調整 */
+}
+
+/* 親要素（画像を包む領域） */
+.work__image-area {
+  position: relative;
+  display: block; /* 画像エリアをブロック要素化 */
+}
+
+.work__image-area img {
+  display: block;
+  width: 100%;
+  height: auto; /* 画像が縦横比を維持 */
+}
+
+/* 個別の調整が必要な場合（例: フォントサイズや配置順） */
+.cliant-work {
+  position: absolute; /* 親要素を基準に配置 */
+  bottom: -50px; /* 親要素の下から10pxの位置 */
+  left: 0px;
+  color: #000000;
+  background-color: #e8d575;
+  border-radius: 30px;
+  padding: 10px 15px;
+}
+
+.independent-creation {
+  position: absolute; /* 親要素を基準に配置 */
+  bottom: -50px; /* 親要素の下から10pxの位置 */
+  left: 0px;
+  color: #ffffff;
+  background-color: #7a7a7a;
+  border-radius: 30px;
+  padding: 10px 15px;
+}
+
+
+.work-kinds {
+  position: absolute; /* 親要素を基準に配置 */
+  bottom: -40px; /* 親要素の下から10pxの位置 */
+  left: 180px;
+  opacity: 0.5;
+}
+
+.cliant-work-kinds {
+  position: absolute; /* 親要素を基準に配置 */
+  bottom: -40px; /* 親要素の下から10pxの位置 */
+  left: 100px;
+  opacity: 0.5;
+}
+
+.work__image-area p {
+  position: absolute; /* 親要素を基準に配置 */
+  bottom: -80px; /* 親要素の下から10pxの位置 */
+  left: 0px;
+  font-weight: 300;
+}
+
+.Works a {
+  margin-top:80px ;
+}
+
+.Works {
+  display: flex;
+  flex-wrap: wrap;
+  margin-bottom: 30px;
+}
+
+.Works p, .cliant-work, .work-kinds, .cliant-work-kinds, .independent-creation {
+  font-size: 15px;
+}
+
+.Works img {
+  display: block; /* インライン要素ではなくブロック要素として扱う */
+  transition: transform 0.3s ease, filter 0.3s ease; /* アニメーションを滑らかに */
+}
+
+img:hover {
+  transform: translateY(-10px); /* Y軸方向に10px上へ移動 */
+  filter: brightness(0.7); /* 明るさを70%にして暗くする */
+}
+
+/*--------------------------------------------------------------------------*/ 
+
+/* モーダルのスタイル */
+.modal {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.8); /* 背景を半透明の黒に設定 */
+  opacity: 0; /* 非表示状態 */
+  visibility: hidden; /* 非表示状態 */
+  transition: opacity 0.3s ease, visibility 0.3s ease; /* アニメーション */
+  z-index: 1000;
+}
+
+/* モーダル内の画像を大きく表示 */
+/* モーダル内の画像にはtransitionを無効化 */
+.modal-content {
+  width: auto;
+  height: auto;
+  max-width: 90vw;
+  max-height: 90vh;
+  object-fit: contain;
+  margin: auto;
+  display: block;
+
+  /* transitionを無効化 */
+  transition: none !important;
+}
+
+
+/* モーダル内の画像にはhoverスタイルを無効化 */
+.modal-content:hover {
+  transform: none; /* 変形を無効化 */
+  filter: none; /* 明るさや他のフィルター効果を無効化 */
+  opacity: 1; /* 不透明度を変更しない */
+}
+
+/* モーダルの閉じるボタン */
+#close {
+  position: absolute;
+  top: 10px;
+  right: 20px;
+  color: white;
+  font-size: 30px;
+  cursor: pointer;
+}
+
+
+
+
+/* ココから下は画像を並べてる部分のスタイルなので
+　　モーダルとは直接関係がない部分です　　　　　 */
+/********************************************/
+.wrap {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  list-style: none;
+}
+
+.img:hover {
+  opacity: 0.7;
+}
+
+.view {
+  z-index: 10;
+  position: absolute;
+  display: inline-block;
+  left: 100px;
+  top: 100px;
+  color: white; /* テキストの色を白に設定（背景が暗い場合） */
+  background-color: #212529;
+  font-size: 1.2rem; /* 必要に応じてサイズを調整 */
+  font-size: 10px;
+  font-weight: 1000;
+}
+
+.none {
+  display: none;
+  height: 800px;
+}
+
+.none p {
+  text-align: center;
+  margin: 50px auto;
+  font-size: 40px;
+  font-weight: 400;
+}

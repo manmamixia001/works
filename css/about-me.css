@@ -1,0 +1,175 @@
+/* CSSの最初にリセットスタイルを記述 */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+
+li {
+  list-style: none;
+}
+
+
+
+
+/*--------------------------------------------------------------------------*/
+.header {
+  font-size: 16px;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 70px;
+  position: fixed;
+  top: 0px;
+  z-index: 10;
+}
+
+/* 初期状態（アニメーション前） */
+.header {
+  transform: translateY(-80px); /* 下に50px移動 */
+  transition: transform 2s;
+  box-shadow: -5px -5px 10px 0px rgba(255, 255, 255, 0.5), 
+  5px 5px 10px 0px rgba(0, 0, 0, 0.3);
+}
+
+/*--------------------------------------------------------------------------*/
+.header-left {
+  display: flex;           /* 子要素（画像）を中央揃えするためにFlexboxを追加 */
+  align-items: center;     /* 縦方向の中央揃え */
+  margin-left: 10px;       /* 左の余白を追加 */
+}
+
+.header-left img {
+  height: 60px;            /* 画像の高さを固定 */
+  margin: 0;               /* 余計な余白を削除 */
+}
+
+.header-right {
+  display: flex;           /* Flexboxでリンクを配置 */
+  align-items: center;     /* リンクを縦方向で中央揃え */
+  margin-right: 10px;      /* 右の余白を追加 */
+  
+}
+
+.header-btn {
+  width: 100px;                  /* ボタンの幅 */
+  margin-left: 10px;             /* ボタン間のスペースを調整 */
+  padding: 5px 0;                /* ボタン内の上下パディングを調整 */
+  border-radius: 5px;            /* 角を丸くする */
+  display: flex;                 /* Flexboxを適用 */
+  align-items: center;           /* 縦方向の中央揃え */
+  justify-content: center;       /* 横方向の中央揃え */
+  box-shadow: -5px -5px 10px 0px rgba(255, 255, 255, 0.5), 
+  5px 5px 10px 0px rgba(0, 0, 0, 0.3);
+}
+
+
+
+/*--------------------------------------------------------------------------*/
+.header-right a {
+  color: #333;    /* 赤文字の色 */
+  text-decoration: none;         /* 下線を削除 */
+  position: relative;            /* 擬似要素のための基準 */
+  display: inline-block;
+}
+
+.header-right a:before {
+  content: "";                   /* 擬似要素で下線を追加 */
+  position: absolute;
+  left: 0;
+  bottom: 0px;                  /* 赤文字のすぐ下に配置 */
+  width: 100%;                   /* 下線の幅 */
+  height: 1px;                   /* 下線の高さ */
+  background: #555;              /* 下線の色 */
+  transform: scale(0, 1);        /* 初期状態で非表示 */
+  transform-origin: left;        /* 左から拡大するアニメーション */
+  transition: 0.4s;              /* トランジション効果 */
+}
+
+.header-right a:hover:before {
+  transform: scale(1);           /* ホバー時に下線を表示 */
+}
+/*パララックス---------------------------------------------------------------*/
+/*--------------------------------------------------------------------------*/
+.body {
+  background-color: blue;
+}
+
+h2 {
+  padding-top: 100px;
+  margin-bottom: 24px;
+  font-weight: 500;
+  font-size: 4.8rem;
+  text-align: center;
+}
+
+h3 {
+  font-weight: 500;
+  font-size: 1.6rem;
+  margin-bottom: 40px;
+  opacity: 0.8;
+  text-align: center;
+}
+
+
+#timeline {
+  height: 1000px;
+  background-color: blue;
+  width: 40%; /* 必要に応じて調整 */
+  margin: 0 auto;
+  display: flex;
+  flex-direction: row;
+  position: relative; /* 子要素の基準 */
+}
+
+.year {
+  display: flex;
+  flex-direction: column; /* 必要に応じて行方向を設定 */
+  gap: 100px; /* 縦方向の間隔を設定 */
+  background-color: #ffffff;
+}
+.year li {
+  display: flex;
+}
+
+
+.events {
+  width: 70%;
+  position: absolute; /* 親要素内での絶対配置 */
+  right: 0; /* 右端に寄せる */
+  display: flex;
+  flex-direction: column; /* 縦方向に並べる */
+  background-color: aqua;
+  padding: 10px; /* 余白を追加 */
+  border-radius: 5px; /* 角を丸める（任意） */
+}
+
+.events p {
+  display: inline-block;
+}
+
+#birth {
+  position: absolute;
+  top: 0px;
+}
+
+#buy {
+  position: absolute;
+  top: 50px;
+}
+
+#start-edit {
+  position: absolute;
+  top: 100px;
+}
+
+.wavy-line {
+  position: absolute;
+  top: 50px; /* 縦位置を指定 */
+  left: 50%; /* 親要素の幅の50% */
+  transform: translateX(-50%); /* 自身の幅の50%分左に移動して中央揃え */
+  z-index: 2; /* 必要に応じて調整 */
+  width: 105%;
+}

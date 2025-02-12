@@ -1,0 +1,552 @@
+/* CSSの最初にリセットスタイルを記述 */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  text-align: center;
+}
+
+
+
+li {
+  list-style: none;
+}
+  
+html {
+  background: #F8F6F0;
+}
+
+body {
+  color: #333;
+  font-weight: 400;
+  font-family:"MS Pゴシック",sans-serif;
+
+}
+
+/*--------------------------------------------------------------------------*/ 
+
+.about-me {
+  position: relative; /* 画像の親要素を基準に配置 */
+  height: 950px; /* 適切な高さを指定 */
+}
+
+.my-img {
+  position: absolute; /* 親要素 .about-me 内で絶対配置 */
+  height: 700px;
+  top: 100px;
+  left: 200px;
+  z-index: 2; /* 動画よりも上に配置 */
+}
+
+.my-img-before {
+  top: 150px;
+  opacity: 0;
+}
+
+.my-img-after {
+  transition: 2s;
+  top: 100px;
+  opacity: 1;
+}
+
+.about-me video {
+  position: absolute; /* 親要素 .about-me 内で絶対配置 */
+  top: 0;
+  left: 0;
+  z-index: 1; /* 画像より下に配置 */
+}
+
+.about-myself {
+  position: absolute;
+  top: 350px;
+  left: 1100px;
+  z-index: 3;
+  text-align: center;
+  font-size: 20px;
+}
+
+body {
+  opacity: 1;
+  transition: opacity 0.5s ease-in-out; /* スムーズなフェードアウト効果 */
+}
+
+.hidden {
+  opacity: 0;
+}
+
+/*--------------------------------------------------------------------------*/ 
+
+.fadein {
+  opacity: 0;
+  transform: translateY(80px);
+  animation: fadein 2s ease forwards;
+}
+@keyframes fadein {
+  100% {  
+    transform: translateY(0px);
+    opacity: 1;
+  }
+}
+
+/*以下遅延の指定*/
+.txt01 {animation-delay: 0s;}
+.txt02 {animation-delay: 0.2s;}
+.txt03 {animation-delay: 0.4s;}
+.txt04 {animation-delay: 0.6s;}
+.txt05 {animation-delay: 0.8s;}
+.txt06 {animation-delay: 1s;}
+.txt07 {animation-delay: 1.2s;}
+.txt08 {animation-delay: 1.4s;}
+.txt09 {animation-delay: 1.6s;}
+.txt10 {animation-delay: 1.8s;}
+.txt11 {animation-delay: 2s;}
+
+/*--------------------------------------------------------------------------*/ 
+/*まずはお決まりのボックスサイズ算出をborer-boxに */
+*,
+*:before,
+*:after {
+  -webkit-box-sizing: inherit;
+  box-sizing: inherit;
+}
+
+html {
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+  font-size: 62.5%;/*rem算出をしやすくするために*/
+}
+
+.btn,
+a.btn,
+button.btn {
+  font-size: 1.6rem;
+  font-weight: 700;
+  line-height: 1.5;
+  position: relative;
+  display: inline-block;
+  padding: 1rem 4rem;
+  cursor: pointer;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  -webkit-transition: all 0.3s;
+  transition: all 0.3s;
+  text-align: center;
+  vertical-align: middle;
+  text-decoration: none;
+  letter-spacing: 0.1em;
+  color: #212529;
+  border-radius: 0.5rem;
+}
+/*その他と主な共通部分は省略*/
+
+/*その他と主な共通部分は省略*/
+
+a.btn-flat {
+  overflow: hidden;
+  margin-top: 50px;
+
+  padding: 1.5rem 6rem;
+
+  color: #fff;
+  border-radius: 0;
+  background: #252122;
+}
+
+a.btn-flat span {
+  position: relative;
+}
+
+a.btn-flat:before {
+  position: absolute;
+  top: 0;
+  left: 0;
+
+  width: 100px;
+  height: 100px;
+
+  content: '';
+  -webkit-transition: all .5s ease-in-out;
+  transition: all .5s ease-in-out;
+  -webkit-transform: translateX(-80%) translateY(-25px);
+  transform: translateX(-80%) translateY(-25px);
+
+  border-radius: 50%;
+  background: #e8d575;
+}
+
+a.btn-flat:hover:before {
+  width: 400px;
+  height: 400px;
+
+  -webkit-transform: translateX(-1%) translateY(-175px);
+
+  transform: translateX(-1%) translateY(-175px);
+}
+/*--------------------------------------------------------------------------*/ 
+/* 共通スタイル */
+.header {
+  font-size: 16px;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 70px;
+  position: fixed;
+  top: 0px;
+  z-index: 10;
+}
+
+/* 初期状態（アニメーション前） */
+.header {
+  transform: translateY(-80px); /* 下に50px移動 */
+  transition: transform 2s;
+  box-shadow: -5px -5px 10px 0px rgba(255, 255, 255, 0.5), 
+  5px 5px 10px 0px rgba(0, 0, 0, 0.3);
+}
+
+/*--------------------------------------------------------------------------*/
+.header-left {
+  display: flex;           /* 子要素（画像）を中央揃えするためにFlexboxを追加 */
+  align-items: center;     /* 縦方向の中央揃え */
+  margin-left: 10px;       /* 左の余白を追加 */
+}
+
+.header-left img {
+  height: 60px;            /* 画像の高さを固定 */
+  margin: 0;               /* 余計な余白を削除 */
+}
+
+.header-right {
+  display: flex;           /* Flexboxでリンクを配置 */
+  align-items: center;     /* リンクを縦方向で中央揃え */
+  margin-right: 10px;      /* 右の余白を追加 */
+  
+}
+
+.header-btn {
+  width: 100px;                  /* ボタンの幅 */
+  margin-left: 10px;             /* ボタン間のスペースを調整 */
+  padding: 5px 0;                /* ボタン内の上下パディングを調整 */
+  border-radius: 5px;            /* 角を丸くする */
+  display: flex;                 /* Flexboxを適用 */
+  align-items: center;           /* 縦方向の中央揃え */
+  justify-content: center;       /* 横方向の中央揃え */
+  box-shadow: -5px -5px 10px 0px rgba(255, 255, 255, 0.5), 
+  5px 5px 10px 0px rgba(0, 0, 0, 0.3);
+}
+
+
+
+/*--------------------------------------------------------------------------*/
+.header-right a {
+  color: #333;    /* 赤文字の色 */
+  text-decoration: none;         /* 下線を削除 */
+  position: relative;            /* 擬似要素のための基準 */
+  display: inline-block;
+}
+
+.header-right a:before {
+  content: "";                   /* 擬似要素で下線を追加 */
+  position: absolute;
+  left: 0;
+  bottom: 0px;                  /* 赤文字のすぐ下に配置 */
+  width: 100%;                   /* 下線の幅 */
+  height: 1px;                   /* 下線の高さ */
+  background: #555;              /* 下線の色 */
+  transform: scale(0, 1);        /* 初期状態で非表示 */
+  transform-origin: left;        /* 左から拡大するアニメーション */
+  transition: 0.4s;              /* トランジション効果 */
+}
+
+.header-right a:hover:before {
+  transform: scale(1);           /* ホバー時に下線を表示 */
+}
+/*--------------------------------------------------------------------------*/
+
+.about-me {
+  height: 980px;
+  
+}
+
+.video {
+  width: 100%;
+}
+/*--------------------------------------------------------------------------*/
+
+.Skill {
+  height: auto;
+  background: #e8d575;
+}
+
+.video {
+  width: 100%;
+}
+
+/*--------------------------------------------------------------------------*/
+
+
+.none {
+  display: none; /* 初期状態で非表示 */
+}
+
+.appear {
+  display: block; /* 表示状態 */
+}
+
+/*--------------------------------------------------------------------------*/
+h2 {
+  font-size: 4.8rem;
+  font-weight: 500;
+}
+
+.contents_wrapper img {
+  max-width: 100%;
+}
+
+.Skill {
+  width: 100%;
+  padding: 80px 400px;
+  font-family: "nort", sans-serif;
+  font-style: normal;
+  box-shadow: inset 0px 15px 15px -10px rgba(0, 0, 0, 0.4);
+}
+
+.contents_wrapper {
+  box-sizing: border-box;
+  align-items: center;
+}
+
+.contents_wrapper ul{
+  display: flex;
+  gap: 40px;
+}
+
+.contents_wrapper h2 {
+  margin-bottom: 24px;
+  font-weight: 500;
+}
+
+.contents_wrapper h3 {
+  font-weight: 500;
+  font-size: 1.6rem;
+  margin-bottom: 40px;
+  opacity: 0.8;
+}
+
+
+.contents_wrapper li {
+  background-color: #F8F6F0;
+  width: auto; /* ギャップを考慮して調整 */
+  margin: 0; /* 不要な余白を削除 */
+  padding: 60px 30px 64px;
+  border-radius: 20px;
+  box-shadow: 0px 2px 2px 0px rgba(0, 0, 0, 0.5), 
+  inset 0px -3px 6px -2px rgba(0, 0, 0, 0.3);
+}
+
+.li_title {
+  font-size: 4rem;
+  font-weight: 400;
+  margin-bottom: 0px;
+  
+}
+
+.contents_wrapper p {
+  font-weight: 300;
+  color: #333;
+  line-height: 2.4rem;
+  font-size: 170%;
+  text-align: left;
+}
+
+.li_small {
+  font-weight: 200;
+  text-align: left;
+  font-size: 1.4rem;
+  opacity: 0.8;
+  margin-bottom: 16px;
+}
+
+/*--------------------------------------------------------------------------*/
+
+.Works {
+  width: 100%;
+  padding: 80px 400px 200px 400px;
+  font-family: "nort", sans-serif;
+  font-style: normal;
+  font-weight: 300;
+  font-size: 20px;
+  box-shadow: inset 0px 15px 15px -10px rgba(0, 0, 0, 0.4);
+}
+
+
+.Works_contents_wrapper {
+  box-sizing: border-box;
+}
+
+h3 {
+  font-weight: 500;
+  font-size: 1.6rem;
+  margin-bottom: 40px;
+  opacity: 0.8;
+}
+
+
+.Works_contents_wrapper ul {
+  display: grid; /* Grid Layoutを使用 */
+  grid-template-columns: repeat(2, 1fr); /* 2列構成 */
+  gap: 40px; /* 要素間のスペース */
+}
+
+.Works_contents_wrapper li {
+  background-color: #F8F6F0;
+  padding: 60px 30px 64px;
+  border-radius: 20px;
+}
+
+.Works_contents_wrapper img {
+  max-width: 100%;
+}
+
+/* 親要素（画像を包む領域） */
+.work__image-area {
+  position: relative; /* 子要素の基準点 */
+  display: inline-block; /* インライン要素として設定 */
+}
+
+.work__image-area img {
+  display: block; /* 隙間をなくすためにブロック要素化 */
+  width: 100%; /* 画像を親要素にフィット */
+}
+
+
+/* 個別の調整が必要な場合（例: フォントサイズや配置順） */
+.cliant-work {
+  position: absolute; /* 親要素を基準に配置 */
+  bottom: -60px; /* 親要素の下から10pxの位置 */
+  left: 0px;
+  color: #000000;
+  background-color: #e8d575;
+  border-radius: 30px;
+  padding: 10px 15px;
+}
+
+.independent-creation {
+  position: absolute; /* 親要素を基準に配置 */
+  bottom: -60px; /* 親要素の下から10pxの位置 */
+  left: 0px;
+  color: #ffffff;
+  background-color: #7a7a7a;
+  border-radius: 30px;
+  padding: 10px 15px;
+}
+
+
+.work-kinds {
+  position: absolute; /* 親要素を基準に配置 */
+  bottom: -50px; /* 親要素の下から10pxの位置 */
+  left: 230px;
+  opacity: 0.5;
+}
+
+.cliant-work-kinds {
+  position: absolute; /* 親要素を基準に配置 */
+  bottom: -50px; /* 親要素の下から10pxの位置 */
+  left: 125px;
+  opacity: 0.5;
+}
+
+.work__image-area p {
+  position: absolute; /* 親要素を基準に配置 */
+  bottom: -100px; /* 親要素の下から10pxの位置 */
+  left: 0px;
+  font-weight: 300;
+}
+
+.Works a {
+  margin-top:80px ;
+}
+
+/*--------------------------------------------------------------------------*/
+
+/* アニメーション前 */
+.u-fade-type-up {
+  transform: translateY(50px);
+  opacity: 0;
+}
+
+/* トリガー発火で is-active を付与 */
+.u-fade-type-up.is-active {
+  transition: transform 0.6s, opacity 0.6s;
+  transform: translateY(0);
+  opacity: 1;
+}
+
+/* アニメーション前 */
+.u-fade-type-up2 {
+  transform: translateY(50px);
+  opacity: 0;
+}
+
+/* トリガー発火で is-active を付与 */
+.u-fade-type-up2.is-active2 {
+  transition: transform 0.6s, opacity 0.6s;
+  transform: translateY(0);
+  opacity: 1;
+}
+
+
+
+/*footer--------------------------------------------------------------------*/
+
+footer {
+  height: 400px;
+  background-color: #afa15a;
+  width: 100%;
+  padding: 80px 80px 400px 80px;
+  font-family: "nort", sans-serif;
+  font-style: normal;
+  font-weight: 300;
+  font-size: 20px;
+  position: relative;
+  box-shadow: inset 0px 15px 15px -10px rgba(0, 0, 0, 0.4);
+}
+
+footer p {
+  margin: 50px;
+}
+
+#mail {
+  font-size: 50px;
+  background-color: #ffffff;
+  padding: 0px 100px;
+  border-radius: 9999px;
+  color: #212529;
+  text-decoration: none;
+  transition: all 0.5s;
+}
+
+#mail:hover {
+  font-size: 50px;
+  background-color: #ffffff;
+  padding: 0px 100px;
+  border-radius: 9999px;
+  color: #212529;
+  text-decoration: none;
+  opacity: 0.8;
+  transition: all 0.5s;
+}
+
+#twitter-icon {
+  transform: translateY(30px);
+  width: 80px;
+  transition: all 0.5s;
+}
+
+#twitter-icon:hover {
+  transform: translateY(30px);
+  width: 80px;
+  opacity: 0.8;
+}
